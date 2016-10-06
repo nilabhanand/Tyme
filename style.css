@@ -22,8 +22,15 @@ body {
 	top: 40%;
 
 }
-/*.container {
-	height: 100%;
-	width: 100%;
 
-}*/
+.love h1 {
+	font-family: sans-serif;
+	font-size: 15px;
+	opacity: 0.6;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-weight: 50;
+}
