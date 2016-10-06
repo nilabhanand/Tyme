@@ -1,1 +1,50 @@
+<HTML>
+<head>
+	<title>Time</title>
+	<link href="style.css" rel="stylesheet">
+	<meta http-equiv="refresh" content="3600">
+</head>
+<body>
 
+	<div class = "container">
+    
+	</div>	
+
+	<script>
+	var bgtime = new Date();
+	currHour = bgtime.getHours();
+	function startTime() {
+    	var today = new Date();
+    	var h = today.getHours();
+    	var m = today.getMinutes();
+    	var s = today.getSeconds();
+    	m = checkTime(m);
+    	s = checkTime(s);
+    	document.getElementById('txt').innerHTML =
+    	h + ":" + m + ":" + s;
+    	var t = setTimeout(startTime, 500);
+	}
+	
+	function checkTime(i) {
+    	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    	return i;
+	}
+	
+	if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
+		document.body.style.backgroundImage = "url('night.jpg')";
+	}
+	else if ((currHour >= 6 && currHour < 10)) {
+		document.body.style.backgroundImage = "url('sunrise.jpg')";
+	}
+	else if (currHour >= 18 && currHour < 21) {
+		document.body.style.backgroundImage = "url('sunset.jpg')";
+	}
+	else {
+		document.body.style.backgroundImage = "url('day.jpg')";
+	} 
+</script>
+
+<body onload="startTime()">
+<div id="txt"></div>
+
+</body>	
