@@ -2,7 +2,7 @@
 <head>
 	<title>Tyme</title>
 	<link href="style.css" rel="stylesheet">
-	<meta http-equiv="refresh" content="60">
+	<meta http-equiv="refresh" content="1800">
 </head>
 <body>
 
@@ -13,42 +13,134 @@
 	<script>
 	var bgtime = new Date();
 	currHour = bgtime.getHours();
+	currDay = bgtime.getDay();
+
+	var ending = " ";
+
+
+	///var s = document.getElementById("themes")
+	///var opt = sel.options[sel.selectedIndex];
+	///console.log(opt);
+	
+
+	var weekdays = new Array(7);
+	weekdays[0] = "Sunday";
+	weekdays[1] = "Monday";
+	weekdays[2] = "Tuesday";
+	weekdays[3] = "Wednesday";
+	weekdays[4] = "Thursday";
+	weekdays[5] = "Friday";
+	weekdays[6] = "Saturday";
+
+	var current_date = new Date();
+	var weekday_value = current_date.getDay();
+	var date = current_date.getDate();
+	var year = current_date.getFullYear();
+
+	var monthNames = ["January", "February", "March", "April", "May", "June",
+  	"July", "August", "September", "October", "November", "December"
+	];
+	month_value = current_date.getMonth();
+	
+
 	function startTime() {
     	var today = new Date();
     	var h = today.getHours();
     	var m = today.getMinutes();
     	var s = today.getSeconds();
+    	var d = today.getDay();
     	m = checkTime(m);
     	s = checkTime(s);
-    	document.getElementById('txt').innerHTML =h + ":" + m + ":" + s;
+    	document.getElementById('txt').innerHTML =
+    	h + ":" + m + ":" + s;
+    	
     	var t = setTimeout(startTime, 500);
 	}
+
+	function show_selected() {
+    	var selector = document.getElementById('themes');
+    	var value = selector[selector.selectedIndex].value;
+    	var t = setTimeout(show_selected, 500)
+
+
+    	if (value == 1) {
+    		if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
+				document.body.style.backgroundImage = "url('night.jpg')";
+			}else if ((currHour >= 6 && currHour < 10)) {
+				document.body.style.backgroundImage = "url('sunrise.jpg')";
+			}else if (currHour >= 18 && currHour < 21) {
+				document.body.style.backgroundImage = "url('sunset.jpg')";
+			}else {
+				document.body.style.backgroundImage = "url('day.jpg')";
+			} 
+		}
+    	
+    	if (value == 2) {
+    		if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
+				document.body.style.backgroundImage = "url('shangainight.jpg')";
+			}else if ((currHour >= 6 && currHour < 10)) {
+				document.body.style.backgroundImage = "url('greatwall.jpg')";
+			}else if (currHour >= 18 && currHour < 21) {
+				document.body.style.backgroundImage = "url('shangaisunset.jpg')";
+			}else {
+				document.body.style.backgroundImage = "url('shangaisunset.jpg')";
+			} 
+    	}
+	}
+
+	function day() {
+		if (currHour == 0) {
+			weekday_value;
+		}
+		//document.getElementById('txt2').innerHTML =
+		//weekdays[weekday_value];
+
+	}
+	function month() {
+
+		if (date >= 4 && date <= 20 || date >= 24 && date <= 30) {
+			ending = "th"
+		}else if (date == 1 || date == 21 || date == 31) {
+			ending = "st"
+		}else if (date == 2 || date == 22) {
+			ending = "nd"
+		}else if (date == 3 || date == 23) {
+			ending = "rd"
+		}
+		//document.getElementById('txt3').innerHTML =
+		//monthNames[month_value] + " " + date + ending + "," + " " + year;
+
+		
+	}
+
 	
 	function checkTime(i) {
-    	if (i < 10) {
-		i = "0" + i
-	};  
-    		return i;
+    	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    	return i;
 	}
-	
-	if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
-		document.body.style.backgroundImage = "url('night.jpg')";
-	}
-	else if ((currHour >= 6 && currHour < 10)) {
-		document.body.style.backgroundImage = "url('sunrise.jpg')";
-	}
-	else if (currHour >= 18 && currHour < 21) {
-		document.body.style.backgroundImage = "url('sunset.jpg')";
-	}
-	else {
-		document.body.style.backgroundImage = "url('day.jpg')";
-	} 
+
+
+
 </script>
 
-<body onload="startTime()">
+
+
+
+<body onload="startTime(), day(), month(), show_selected(), city()">
 <div id="txt"></div>
+<div id="txt2"></div>
+<div id="txt3"></div>
+<div id="display"></div>
+<select id = "themes">
+  <option value="1">New York City</option>
+  <option value="2">China</option>
+</select>
+
+
 <div class = "love">
 	<h1>Made with love in Mississauga</h1>
-</div>		
+</div>	
+<div id="weather"></div>
 
 </body>	
+
