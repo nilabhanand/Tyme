@@ -14,35 +14,21 @@
 	var bgtime = new Date();
 	currHour = bgtime.getHours();
 	currDay = bgtime.getDay();
-
 	var ending = " ";
-
-
 	///var s = document.getElementById("themes")
 	///var opt = sel.options[sel.selectedIndex];
 	///console.log(opt);
 	
-
-	var weekdays = new Array(7);
-	weekdays[0] = "Sunday";
-	weekdays[1] = "Monday";
-	weekdays[2] = "Tuesday";
-	weekdays[3] = "Wednesday";
-	weekdays[4] = "Thursday";
-	weekdays[5] = "Friday";
-	weekdays[6] = "Saturday";
-
+	var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday",
+	"Thursday", "Friday", "Saturday"];
 	var current_date = new Date();
 	var weekday_value = current_date.getDay();
 	var date = current_date.getDate();
 	var year = current_date.getFullYear();
-
 	var monthNames = ["January", "February", "March", "April", "May", "June",
-  	"July", "August", "September", "October", "November", "December"
-	];
+  	"July", "August", "September", "October", "November", "December"];
 	month_value = current_date.getMonth();
 	
-
 	function startTime() {
     	var today = new Date();
     	var h = today.getHours();
@@ -56,13 +42,10 @@
     	
     	var t = setTimeout(startTime, 500);
 	}
-
 	function show_selected() {
     	var selector = document.getElementById('themes');
     	var value = selector[selector.selectedIndex].value;
     	var t = setTimeout(show_selected, 500)
-
-
     	if (value == 1) {
     		if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
 				document.body.style.backgroundImage = "url('night.jpg')";
@@ -86,7 +69,6 @@
 				document.body.style.backgroundImage = "url('shangaisunset.jpg')";
 			} 
     	}
-
     	if (value == 3) {
     		if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
 				document.body.style.backgroundImage = "url('sfnight.jpg')";
@@ -98,7 +80,6 @@
 				document.body.style.backgroundImage = "url('sfsunrise.jpg')";
 			} 
     	}
-
     	if (value == 4) {
     		if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
 				document.body.style.backgroundImage = "url('dnight.jpg')";
@@ -111,17 +92,13 @@
 			} 
     	}
 	}
-
 	function day() {
 		if (currHour == 0) {
 			weekday_value;
 		}
-		//document.getElementById('txt2').innerHTML =
-		//weekdays[weekday_value];
-
+		document.getElementById('txt2').innerHTML = weekdays[weekday_value];
 	}
 	function month() {
-
 		if (date >= 4 && date <= 20 || date >= 24 && date <= 30) {
 			ending = "th"
 		}else if (date == 1 || date == 21 || date == 31) {
@@ -131,26 +108,21 @@
 		}else if (date == 3 || date == 23) {
 			ending = "rd"
 		}
-		//document.getElementById('txt3').innerHTML =
-		//monthNames[month_value] + " " + date + ending + "," + " " + year;
-
+		document.getElementById('txt3').innerHTML =
+		monthNames[month_value] + " " + date + ending + "," + " " + year;
 		
 	}
-
 	
 	function checkTime(i) {
     	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     	return i;
 	}
-
 	function city() {
     	
     }   
-
     function shanghai() {
     	
     }   
-
 </script>
 
 
@@ -174,5 +146,4 @@
 </div>	
 <div id="weather"></div>
 
-</body>	
-
+</body> 
