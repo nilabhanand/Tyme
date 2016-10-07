@@ -64,7 +64,7 @@ select {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
-   opacity: 0.1;
+   opacity: 0.6;
 }
 
 /*@media screen and (max-width: 480px) {
