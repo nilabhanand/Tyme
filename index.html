@@ -2,7 +2,7 @@
 <head>
 	<title>Tyme</title>
 	<link href="style.css" rel="stylesheet">
-	<meta http-equiv="refresh" content="1800">
+	<meta http-equiv="refresh" content="60">
 </head>
 <body>
 
@@ -20,14 +20,15 @@
     	var s = today.getSeconds();
     	m = checkTime(m);
     	s = checkTime(s);
-    	document.getElementById('txt').innerHTML =
-    	h + ":" + m + ":" + s;
+    	document.getElementById('txt').innerHTML =h + ":" + m + ":" + s;
     	var t = setTimeout(startTime, 500);
 	}
 	
 	function checkTime(i) {
-    	if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    	return i;
+    	if (i < 10) {
+		i = "0" + i
+	};  
+    		return i;
 	}
 	
 	if ((currHour >= 0 && currHour < 6) || (currHour >= 21 && currHour <= 24)){
