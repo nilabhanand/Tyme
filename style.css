@@ -60,6 +60,13 @@ body {
 	font-weight: 50;
 }
 
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   opacity: 0.6;
+}
+
 /*@media screen and (max-width: 480px) {
     #txt {
      position: absolute; 
