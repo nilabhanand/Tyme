@@ -4,7 +4,8 @@ html {
 
 body {
 	min-height: 100%;
-    background-image: url("flash1.jpg");
+	width: 100%;
+    
 	background-repeat:no-repeat;
 	background-position:center;
 	background-size:100% ;
@@ -23,6 +24,32 @@ body {
 
 }
 
+#txt2 {
+	position: relative; 
+    
+	font-family: sans-serif;
+	font-size: 30px;
+	color: #ffffff;
+	top: 32%;
+	
+
+}
+
+#txt3 {
+	position: relative; 
+	display: inline-block;
+	text-align: center;   
+	font-family: sans-serif;
+	font-size: 30px;
+	color: #ffffff;
+	top: 37%;
+	
+
+}
+
+
+
+
 .love h1 {
 	font-family: sans-serif;
 	font-size: 15px;
@@ -34,3 +61,9 @@ body {
 	bottom: 0;
 	font-weight: 50;
 }
+/*.container {
+	height: 100%;
+	width: 100%;
+
+}*/
+
